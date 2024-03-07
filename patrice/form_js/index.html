@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- TODO N3 css
+        rendi carino il sito
+    -->
+    <style>
+        #form, #user {
+            padding: 15px;
+            width: 250px;
+            margin: auto;
+            background-color: aliceblue;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);;
+        }
+        fieldset {
+            border: 0;
+        }
+        label {
+            line-height: 30px;
+        }
+        button {
+            cursor: pointer;
+            padding: 10px 5px;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: lightgreen;
+        }
+        .btn-danger:hover {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <form id="form" onsubmit="onSubmit(this, event)">
+        <fieldset>
+            <label for="username">Username</label>
+            <input id="username" type="text" required/>
+        </fieldset>
+        <fieldset>
+            <label for="password">password</label>
+            <input id="password" type="password" required/>
+        </fieldset>
+        <fieldset>
+            <label for="email">email</label>
+            <input id="email" type="email" required/>
+        </fieldset>
+        <fieldset>
+            <label for="age">Age</label>
+            <input id="age" type="number" min="18" max="99"/>
+        </fieldset>
+        <button>Invia</button>
+    </form>
+    <div id="logged" style="display: none;">
+        <!-- TODO n2: html js
+            qui inserire l'html contenente i dati dell'utente loggato (username, email e age se presente)
+        -->
+        <div id="user">
+            <h3>Utente loggato</h3>
+
+            <div id="data">
+                <!-- filled from js -->
+            </div>
+
+            <button class="btn-danger" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        const onSubmit = (formElement, evt) => {
+            evt.preventDefault()
+
+            const user = {
+                // query selector cerca nell'html un elemento usando una regola css
+                // se fai document.querySelector cerchi in tutta la pagina
+                // se usi un elemnto html mioElemento.querySelector, cerchi dentro quello
+                username: formElement.querySelector('#username').value,
+                email: formElement.querySelector('#email').value,
+                password: formElement.querySelector('#password').value,
+                age: formElement.querySelector('#age').value
+            }
+            // è possibile salvare sul browser delle variabili stringhe usando localStorage
+            // localStorage.user = "ciao" 
+
+            // se voglio salvare valori che non sono stringhe, devo convertirle
+            // nel caso di oggetti json, esiste la funzione JSON.stringify
+            localStorage.user = JSON.stringify(user)
+            location.reload()
+        }
+
+        if(localStorage.user) {
+            try {
+                // per riconvertire da stringa in oggetto json esiste JSON.parse
+                const user = JSON.parse(localStorage.user)
+                if(user) {
+                    alert(`Bentornato ${user.username}`)
+                    // una volta ottenuto un elemento, l'elemento ha una serie di funzionalità
+                    // posso accedere ai suoi attributi come ad esempio il value
+                    // uno degli attributi è lo stile css
+                    document.querySelector('#form').style.display = 'none'
+                    document.querySelector('#logged').style.display = 'block'
+                    // TODO n2
+
+                    document.querySelector('#user #data').innerHTML = `
+                        <ul>
+                            <li><b>username</b> ${user.username}</li>
+                            <li><b>email</b> ${user.email}</li>
+                            <li><b>password</b> *****${user.password.slice(-3)}</li>
+                            <li><b>age</b> ${user.age}</li>
+                        <ul>
+                    `;
+                }
+            } catch(error) {
+                alert("Utente corrotto")
+                alert(error)
+            }
+        }
+
+        const logout = () => {
+            // todo N1 js 
+            // quando premo logout, devo dimuovere l'utente dal 
+            // localstorage e mostrare di nuovo il form di login, 
+            // nascocndendo la sezione di utente loggato
+            localStorage.removeItem('user')
+            document.querySelector('#form').style.display = 'block'
+            document.querySelector('#logged').style.display = 'none'
+        }
+        
+    </script>
+</body>
+</html>

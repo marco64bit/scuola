@@ -1,0 +1,112 @@
+
+
+<!-- HTML -->
+
+<input type="text" min-length="10" required >
+<input type="password">
+<input type="email">
+<input type="number" min="0" max="10">
+<input type="checkbox">
+<input type="file">
+<select onchange="myFunction(this)">
+    <option value="">rosso</option>
+    <option value="">giallo</option>
+    <option value="blu">colore blu</option>
+</select>
+
+<!-- eventi sulle input -->
+<input
+    type="..." 
+    onchange="myFunction(this, event)" 
+    onkeyup="myFunction(this, event)" 
+    onkeydown="myFunction(this, event)"
+>
+
+<button type="submit">Submimt form here</button>
+<button type="button">Click me</button>
+
+<button
+    type="..."
+    onclick="myFunction(this, event)"
+>
+
+<!-- img e iframe hanno onload -->
+<img src="" alt="..." onload="myFunction(this, event)">
+<iframe src="" onload="myFunction(this, event)">
+
+<!-- onsubmit solo sul form si scatena con il tasto invio oppure con il click su un button di tipo submit contenuto nel form-->
+<form onsubmit="foo1()">
+    <button type="submit" onclick="foo1()">
+</form>
+
+<div onclick="">
+<!-- qualsiasi elemento ha onclick -->
+<!-- <... onclick="myFunction(this, event)"> -->
+<script>
+// JAVASCRIPT
+
+// list
+
+const list = ['a', 'b', false, 1, "maro"]
+list.lenght
+list[1]
+list.indexOf('a')
+if(list.indexOf("pluto") != -1) {
+    // 
+}
+const index = list.indexOf('maro')
+list[index] = "marco"
+
+list.push('fine')
+list.unshift('inizio')
+list.extend(['d','e'])
+list.slice(1, 2)
+list.splice(0, 2)
+
+list.forEach((element) => {
+    console.log(element)
+})
+const list = [1, 7 ,12, 22]
+const result = list.filter((element) => {
+    return element > 10
+})
+// result == [12, 22]
+const result2 = list.map((nome) => {
+    return `<h3>${nome}</h3>`;
+})
+
+
+
+
+
+
+// oggetti, map
+
+const map = {"name": "marco", "age": 29}
+console.log(map["name"])
+delete map["age"]
+console.log(map)
+
+// json
+const data = [
+    {"name": "marco"}
+]
+console.log(data[0]["name"])
+data[0]["extra"] = 1
+console.log(data)
+delete data[0]["extra"]
+console.log(data)
+data.push({
+    "name": "antonio"
+})
+console.log(data)
+
+
+// Poi ...
+// guarda qui https://jsonplaceholder.typicode.com/
+fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => { response.json() })
+    .then((userList) => {
+        console.log(userList)
+    })
+</script>

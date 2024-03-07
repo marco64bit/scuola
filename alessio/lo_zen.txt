@@ -1,0 +1,20 @@
+codice parlante (nomi variabili, nomi funzioni)
+
+max 80 colonne per rigo
+
+indentare a 4 spazi
+
+a capi giusti
+    1 per stacco logico e di funzioni/metodi
+    2 per stacco di classi
+
+underscore case per variabili e funzioni
+camelcase per classi
+
+annidiare poco il codice
+
+evitare file giganti
+
+no god object
+
+i commenti di documentazione

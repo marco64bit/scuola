@@ -1,0 +1,13 @@
+[
+    {
+        "username": "marco",
+        "age": 30
+    },
+    {
+        "username": "Alessio",
+        "age": 39,
+        "attributes": {
+            "developer": 8
+        }
+    }
+]

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login {
+            background: rgb(179, 179, 179);
+            border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <h1>Login</h1>
+        <p>inserisci il tuo nome</p>
+        <input 
+            onchange="onNameChange(this)"
+            onkeyup="onKeyUp(this)"
+            placeholder="inserisci il nome" id="name" 
+        />
+    </div>
+    <div id="result">
+        ...
+    </div>
+    <script>
+        const onNameChange = function (e) {
+            debugger;
+            const value = e.value;
+            
+            if (value == "Marco") {
+                document.getElementById("result")
+                    .innerHTML = "<b>Login effettuato con successo</b>"
+            }
+            
+        }
+
+        const onKeyUp = (e) => {
+            console.log(e.value)
+        }
+
+    </script>
+
+</body>
+
+</html>
