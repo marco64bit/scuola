@@ -30,3 +30,6 @@ venv/
 */**/env/
 env
 env/
+
+qt_ui/env/
+qt_ui/env
