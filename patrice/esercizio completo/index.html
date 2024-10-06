@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova css</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <div class="user-list">
+        <div id="users">
+            <!-- filled by javascrip -->
+        </div>
+        <button class="button-primary">load more user</button>
+    </div>
+
+    <script>
+
+        const user = (obj) => {
+            document.getElementById("users").innerHTML += `
+            <div class="user">
+                <div class="user-image">
+                    <img src="${obj.photo}" />
+                </div>
+                <div class="user-content">
+                    <div>
+                        <h4>${obj.name}</h4>
+                        <p><b>${obj.age}</b></p>
+                    </div>
+                    <button class="button-primary" onclick="onfollow('${obj.name}')">Follow</button>
+                </div>
+            </div>`
+        }
+
+        const onfollow = (name) => {
+            alert(`Hai seguito ${name}`)
+        }
+
+        const userList = [
+            {
+                name: "marco",
+                age: 30,
+                photo: "./images/me.png"
+            },
+            {
+                name: "Patrice",
+                age: 42,
+                photo: "./images/me.png"
+            }
+        ]
+
+        userList.forEach((obj) => {
+            user(obj);
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+body, html {
+    background-color: antiquewhite;
+}
+
+.user-list {
+    padding: 20px;
+    background-color: white;
+    width: 400px;
+    margin: auto;
+
+}
+.user-list > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 25px;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.user {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border: 1px solid rgb(140, 140, 140);
+    border-radius: 20px;
+}
+
+.user-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    background: #9e9e9e;
+    border-radius: 50%;
+}
+.user-image img {
+    width: 100%;
+}
+
+.user-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-content button {
+    width: 100%;
+}
+
+
+
+.button-primary {
+    width: 100px;
+    padding: 5px 10px;
+    background: #b2dab4;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: #8dd790;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="custom1" onclick="foo(this, event, 1, 'ciao')">
+        elemento 1
+    </div>
+
+    <div id="custom2" onclick="foo(this, event, 1, 'ciao')">
+        elemento 2
+        <h1>ciao</h1>
+    </div>
+
+    <script>
+
+        const foo = (el, evt, a, b) => {
+            debugger;
+            const title = el.querySelector("h1");
+            if (title) {
+                title.innerText = "nuovo titolo";
+            } else {
+                el.innerText = "modificato";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
